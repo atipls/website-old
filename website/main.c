@@ -23,9 +23,9 @@ static int sandbird_handler(sb_Event* e) {
 		}
 		if (valid_file(e->path, ".css")) {
 			sb_send_header(e->stream, "Content-Type", "text/css");
-			chdir("data");
+			chdir("data"); //warcrime
 			char* file = read_file(e->path + 1);
-			chdir("..");
+			chdir(".."); //warcrime
 			if (file) {
 				sb_writef(e->stream, file);
 				free(file);
