@@ -3,7 +3,7 @@
 
 #include "debugalloc.h"
 
-char* strndup(const char* s, size_t n) {
+char* _strndup(const char* s, size_t n) {
 	char* result;
 	size_t len = strnlen(s, n);
 	result = (char*)malloc(len + 1);
@@ -43,5 +43,5 @@ char* title_from_markdown(const char* file) {
 	size_t len = 0;
 	while (*p == '#' || *p == ' ') p++;
 	while (p[len] != '\n' && p[len] != '\0') len++;
-	return strndup(p, len);
+	return _strndup(p, len);
 }
